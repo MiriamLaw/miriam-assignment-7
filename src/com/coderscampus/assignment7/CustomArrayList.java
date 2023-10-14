@@ -14,6 +14,12 @@ public class CustomArrayList<T> implements CustomList<T> {
 		size++;
 		return true;
 	}
+	
+	@Override
+	public boolean add (int index, T item) throws IndexOutOfBoundsException {
+		return false;
+		
+	}
 
 	@Override
 	public int getSize() {
@@ -36,6 +42,12 @@ public class CustomArrayList<T> implements CustomList<T> {
 			Object[] newItems = Arrays.copyOf(items, items.length * 2);
 			items = newItems;
 		}
+	}
+
+	@Override
+	public T remove(int index) throws IndexOutOfBoundsException {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }
