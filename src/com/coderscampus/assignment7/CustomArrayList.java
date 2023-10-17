@@ -23,20 +23,17 @@ public class CustomArrayList<T> implements CustomList<T> {
 
 		if (size == items.length) {
 			increaseArraySizeIfNeeded();
-
-			// Shift all existing items to the right
-			for (int i = size; i > index; i--) {
-				items[i] = items[i - 1];
-			}
-
-			// Set the new item at the specified index
-			items[index] = item;
-			size++;
-			return true;
-		} else {
-			// Handle other cases
-			return false;
 		}
+
+		// Shift all existing items to the right
+		for (int i = size; i > index; i--) {
+			items[i] = items[i - 1];
+		}
+
+		// Set the new item at the specified index
+		items[index] = item;
+		size++;
+		return true;
 	}
 
 	@Override

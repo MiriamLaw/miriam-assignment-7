@@ -1,5 +1,6 @@
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.fail;
 
 import org.junit.jupiter.api.Test;
 
@@ -103,5 +104,25 @@ public class CustomArrayListTest {
     	assertEquals("Item1", customList.get(0));
     	assertEquals("Item3", customList.get(1));
     	assertEquals("Item2", customList.get(2));
+    }
+    
+    @Test
+    public void testAddAtOutOfBoundsIndex() {
+    	CustomList<String> customList = new CustomArrayList<>();
+    	
+    	customList.add("Item1");
+    	customList.add("Item2");
+    	
+    	assertEquals(2, customList.getSize());
+    	
+    	//attempt to add item at out of bounds index
+    	try {
+    		customList.add(5, "Item3"); //out of bounds index
+    		fail("Expected IndexOutOfBoundsException but it wasn't thrown");
+    	} catch (IndexOutOfBoundsException e) {
+    		//should be thrown, test should pass
+    		assertEquals(2, customList.getSize());
+    	}
+
     }
 }
