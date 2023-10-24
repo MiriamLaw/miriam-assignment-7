@@ -1,3 +1,4 @@
+import static org.junit.Assert.assertNull;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.junit.jupiter.api.Assertions.fail;
@@ -124,5 +125,59 @@ public class CustomArrayListTest {
     		assertEquals(2, customList.getSize());
     	}
 
+    	}
+    @Test
+    public void testAddMultipleItemsAtVariousPositions() {
+    	CustomList<String> customList = new CustomArrayList<>();
+
+    	//add to end
+    	customList.add("Item1");
+    	assertEquals(1, customList.getSize());
+    	assertEquals("Item1", customList.get(0));
+    	
+    	//add to beginning
+    	customList.add(0, "Item2");
+    	assertEquals(2, customList.getSize());
+    	assertEquals("Item2", customList.get(0));
+    	assertEquals("Item1", customList.get(1));
+    	
+    	//add to middle
+    	customList.add(1, "Item3");
+    	assertEquals(3, customList.getSize());
+    	assertEquals("Item2", customList.get(0));
+    	assertEquals("Item3", customList.get(1));
+    	assertEquals("Item1", customList.get(2));
+    }
+    @Test
+    public void testAddToFullList() {
+    	CustomList<String> customList = new CustomArrayList<>();
+
+    	//fill list to capacity
+    	for (int i = 1; i <= 10; i++) {
+    		customList.add("Item" + i);
+    	}
+    	//should be a full list
+    	assertEquals(10, customList.getSize());
+    	
+    	//add additional item
+    	customList.add("Item11");
+    	
+    //list should dynamically resize to accommodate new item
+    	assertEquals(11, customList.getSize());
+    	assertEquals("Item11", customList.get(10));
+    }
+    @Test
+    public void testAddNullItem() {
+    	CustomList<String> customList = new CustomArrayList<>();
+
+    	//add null item
+    	boolean added = customList.add(null);
+    	
+    	//assert result
+    	assertTrue(added);
+    	assertEquals(1, customList.getSize());
+    	
+    	//verify item added is null
+    	assertNull(customList.get(0));
     }
 }
