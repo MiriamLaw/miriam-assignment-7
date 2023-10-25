@@ -5,10 +5,10 @@ import java.util.Arrays;
 public class CustomArrayList<T> implements CustomList<T> {
 	private Object[] items = new Object[10];
 	private int size = 0;
+	private Class<T> clazz;
 
 	@Override
 	public boolean add(T item) {
-
 		increaseArraySizeIfNeeded();
 		items[size] = item;
 		size++;
@@ -61,8 +61,18 @@ public class CustomArrayList<T> implements CustomList<T> {
 
 	@Override
 	public T remove(int index) throws IndexOutOfBoundsException {
-		// TODO Auto-generated method stub
-		return null;
+		if (index < 0 || index >= size) {
+			throw new IndexOutOfBoundsException("Index is out of bounds");
+		}
+		
+		T removedItem = clazz.cast(items[index]);
+		
+		//shift all items to left
+		for (int i = index; i < size - 1; i++) {
+			items[i] = items[i + 1];
+		}
+		size--;
+		return removedItem;
 	}
 
 }

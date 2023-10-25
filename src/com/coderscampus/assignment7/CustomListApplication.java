@@ -6,7 +6,8 @@ public class CustomListApplication {
 
 		CustomList<Integer> futbolistas = new CustomArrayList<>();
 		
-		for (int i = 0; i < 51; i++) {
+		int maxElements = 100;
+		for (int i = 0; i < maxElements; i++) {
 			futbolistas.add(i);
 			System.out.println(futbolistas.getSize());
 		}
