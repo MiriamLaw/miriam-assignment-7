@@ -4,7 +4,7 @@ public class CustomListApplication {
 
 	public static void main(String[] args) {
 
-		CustomList<Integer> futbolistas = new CustomArrayList<>();
+		CustomList<Integer> futbolistas = new CustomArrayList<Integer>();
 		
 		int maxElements = 100;
 		for (int i = 0; i < maxElements; i++) {

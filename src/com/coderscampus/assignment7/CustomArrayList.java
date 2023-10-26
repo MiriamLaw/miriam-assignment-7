@@ -6,6 +6,16 @@ public class CustomArrayList<T> implements CustomList<T> {
 	private Object[] items = new Object[10];
 	private int size = 0;
 	private Class<T> clazz;
+	
+	public CustomArrayList(Class<T> clazz) {
+		this.clazz = clazz;
+	}
+	
+	public CustomArrayList() {
+		this.clazz = null;
+//		items = new Object[10];
+//		size = 0;
+	}
 
 	@Override
 	public boolean add(T item) {
@@ -63,6 +73,11 @@ public class CustomArrayList<T> implements CustomList<T> {
 	public T remove(int index) throws IndexOutOfBoundsException {
 		if (index < 0 || index >= size) {
 			throw new IndexOutOfBoundsException("Index is out of bounds");
+		}
+		
+		//Check if item to be removed is not null
+		if (items[index] == null) {
+			throw new NullPointerException("Item at index is null");
 		}
 		
 		T removedItem = clazz.cast(items[index]);

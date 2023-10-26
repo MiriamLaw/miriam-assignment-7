@@ -210,4 +210,20 @@ public class CustomArrayListTest {
 	}
 	
 	@Test
+	public void testRemoveFromEmptyList() {
+		//Arrange
+		CustomList<String> customList = new CustomArrayList<>();
+		//Act: attempt to remove from empty list
+		try {
+			customList.remove(0);
+			fail("Expected IndexOutOfBoundsException but it wasn't thrown");
+		} catch (IndexOutOfBoundsException e) {
+			//Ensure exception is thrown
+			assertEquals(0, customList.getSize());
+		} catch (NullPointerException e) {
+			//handle null clazz
+			assertEquals(0, customList.getSize());
+		}
+		
+	}
 }
