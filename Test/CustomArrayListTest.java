@@ -44,7 +44,7 @@ public class CustomArrayListTest {
 	}
 
 	@Test
-	public void testAddAtIndex0() {
+	public void testAddAtIndex() {
 		// Set up test to see if items get shuffled to the right when adding item at
 		// beginning of list
 		CustomList<String> customList = new CustomArrayList<>();
@@ -208,22 +208,86 @@ public class CustomArrayListTest {
 		assertEquals("Item3", customList.get(1));
 
 	}
-	
+
 	@Test
 	public void testRemoveFromEmptyList() {
-		//Arrange
+		// Arrange
 		CustomList<String> customList = new CustomArrayList<>();
-		//Act: attempt to remove from empty list
+		// Act: attempt to remove from empty list
 		try {
 			customList.remove(0);
 			fail("Expected IndexOutOfBoundsException but it wasn't thrown");
 		} catch (IndexOutOfBoundsException e) {
-			//Ensure exception is thrown
+			// Ensure exception is thrown
 			assertEquals(0, customList.getSize());
 		} catch (NullPointerException e) {
-			//handle null clazz
+			// handle null clazz
 			assertEquals(0, customList.getSize());
 		}
+
+	}
+
+	@Test
+	public void testRemoveFromBeginning() {
+		// Arrange
+		CustomList<String> customList = new CustomArrayList<>();
+
+		customList.add("Item1");
+		customList.add("Item2");
+		customList.add("Item3");
+
+		// Act: remove at index 0
+		String removedItem = customList.remove(0);
+
+		// Assert: check if removed and list adjusted
+		assertEquals("Item1", removedItem);
+		assertEquals(2, customList.getSize());
+		assertEquals("Item2", customList.get(0));
+		assertEquals("Item3", customList.get(1));
+	}
+
+	@Test
+	public void testRemoveFromEnd() {
+		CustomList<String> customList = new CustomArrayList<>();
+
+		customList.add("Item1");
+		customList.add("Item2");
+		customList.add("Item3");
+
+		String removedItem = customList.remove(2);
+
+		assertEquals("Item3", removedItem);
+		assertEquals(2, customList.getSize());
+		assertEquals("Item1", customList.get(0));
+		assertEquals("Item2", customList.get(1));
+
+	}
+
+	@Test
+	public void testRemoveFromMiddle() {
+		CustomList<String> customList = new CustomArrayList<>();
+
+		customList.add("Item1");
+		customList.add("Item2");
+		customList.add("Item3");
+
+		String removedItem = customList.remove(1);
 		
+		assertEquals("Item2", removedItem);
+		assertEquals(2, customList.getSize());
+		assertEquals("Item1", customList.get(0));
+		assertEquals("Item3", customList.get(1));
+	}
+	
+	@Test
+	public void testRemoveLastItem() {
+		CustomList<String> customList = new CustomArrayList<>();
+
+		customList.add("Item1");
+		
+		String removedItem = customList.remove(0);
+
+		assertEquals("Item1", removedItem);
+		assertEquals(0, customList.getSize());
 	}
 }

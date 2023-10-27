@@ -11,8 +11,9 @@ public class CustomArrayList<T> implements CustomList<T> {
 		this.clazz = clazz;
 	}
 	
+	@SuppressWarnings("unchecked")
 	public CustomArrayList() {
-		this.clazz = null;
+		this.clazz = (Class<T>)String.class;
 //		items = new Object[10];
 //		size = 0;
 	}
