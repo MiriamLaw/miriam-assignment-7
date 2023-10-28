@@ -5,7 +5,7 @@ public class CustomListApplication {
 	public static void main(String[] args) {
 
 		CustomList<Integer> futbolistas = new CustomArrayList<Integer>();
-		
+
 		int maxElements = 100;
 		for (int i = 0; i < maxElements; i++) {
 			futbolistas.add(i);
@@ -17,9 +17,6 @@ public class CustomListApplication {
 		System.out.println(futbolistas.get(41));
 		System.out.println(futbolistas.get(33));
 
-
-
-		
 	}
 
 }

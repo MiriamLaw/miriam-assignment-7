@@ -6,16 +6,15 @@ public class CustomArrayList<T> implements CustomList<T> {
 	private Object[] items = new Object[10];
 	private int size = 0;
 	private Class<T> clazz;
-	
+
 	public CustomArrayList(Class<T> clazz) {
 		this.clazz = clazz;
 	}
-	
+
 	@SuppressWarnings("unchecked")
 	public CustomArrayList() {
-		this.clazz = (Class<T>)String.class;
-//		items = new Object[10];
-//		size = 0;
+		this.clazz = (Class<T>) String.class;
+
 	}
 
 	@Override
@@ -36,12 +35,10 @@ public class CustomArrayList<T> implements CustomList<T> {
 			increaseArraySizeIfNeeded();
 		}
 
-		// Shift all existing items to the right
 		for (int i = size; i > index; i--) {
 			items[i] = items[i - 1];
 		}
 
-		// Set the new item at the specified index
 		items[index] = item;
 		size++;
 		return true;
@@ -75,15 +72,13 @@ public class CustomArrayList<T> implements CustomList<T> {
 		if (index < 0 || index >= size) {
 			throw new IndexOutOfBoundsException("Index is out of bounds");
 		}
-		
-		//Check if item to be removed is not null
+
 		if (items[index] == null) {
 			throw new NullPointerException("Item at index is null");
 		}
-		
+
 		T removedItem = clazz.cast(items[index]);
-		
-		//shift all items to left
+
 		for (int i = index; i < size - 1; i++) {
 			items[i] = items[i + 1];
 		}
