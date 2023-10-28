@@ -11,7 +11,7 @@ import com.coderscampus.assignment7.CustomList;
 public class CustomArrayListTest {
 
 	@Test
-	public void testAdd() {
+	public void test_Add() {
 
 		CustomArrayList<String> customArrayList = new CustomArrayList<>();
 
@@ -23,7 +23,7 @@ public class CustomArrayListTest {
 	}
 
 	@Test
-	public void testAddToEmptyList() {
+	public void test_Add_To_Empty_List() {
 
 		CustomList<String> customList = new CustomArrayList<>();
 
@@ -37,7 +37,7 @@ public class CustomArrayListTest {
 	}
 
 	@Test
-	public void testAddAtIndex() {
+	public void test_Add_At_Index() {
 
 		CustomList<String> customList = new CustomArrayList<>();
 
@@ -59,7 +59,7 @@ public class CustomArrayListTest {
 	}
 
 	@Test
-	public void testAddItemToEndOfList() {
+	public void test_Add_Item_To_End_Of_List() {
 		CustomList<String> customList = new CustomArrayList<>();
 
 		customList.add("Item1");
@@ -75,7 +75,7 @@ public class CustomArrayListTest {
 	}
 
 	@Test
-	public void testAddItemAtSpecificIndex() {
+	public void test_Add_Item_At_Specific_Index() {
 		CustomList<String> customList = new CustomArrayList<>();
 
 		customList.add("Item1");
@@ -93,7 +93,7 @@ public class CustomArrayListTest {
 	}
 
 	@Test
-	public void testAddAtOutOfBoundsIndex() {
+	public void test_Add_At_OutOfBoundsIndex() {
 		CustomList<String> customList = new CustomArrayList<>();
 
 		customList.add("Item1");
@@ -112,7 +112,7 @@ public class CustomArrayListTest {
 	}
 
 	@Test
-	public void testAddMultipleItemsAtVariousPositions() {
+	public void test_Add_Multiple_Items_At_Various_Positions() {
 		CustomList<String> customList = new CustomArrayList<>();
 
 		customList.add("Item1");
@@ -132,7 +132,7 @@ public class CustomArrayListTest {
 	}
 
 	@Test
-	public void testAddToFullList() {
+	public void test_Add_To_Full_List() {
 		CustomList<String> customList = new CustomArrayList<>();
 
 		for (int i = 1; i <= 10; i++) {
@@ -148,7 +148,7 @@ public class CustomArrayListTest {
 	}
 
 	@Test
-	public void testAddNullItem() {
+	public void test_Add_Null_Item() {
 		CustomList<String> customList = new CustomArrayList<>();
 
 		boolean added = customList.add(null);
@@ -160,7 +160,7 @@ public class CustomArrayListTest {
 	}
 
 	@Test
-	public void testRemove() {
+	public void test_Remove() {
 		CustomList<String> customList = new CustomArrayList<>();
 
 		customList.add("Item1");
@@ -177,7 +177,7 @@ public class CustomArrayListTest {
 	}
 
 	@Test
-	public void testRemoveFromEmptyList() {
+	public void test_Remove_From_Empty_List() {
 
 		CustomList<String> customList = new CustomArrayList<>();
 
@@ -195,7 +195,7 @@ public class CustomArrayListTest {
 	}
 
 	@Test
-	public void testRemoveFromBeginning() {
+	public void test_Remove_From_Beginning() {
 
 		CustomList<String> customList = new CustomArrayList<>();
 
@@ -212,7 +212,7 @@ public class CustomArrayListTest {
 	}
 
 	@Test
-	public void testRemoveFromEnd() {
+	public void test_Remove_From_End() {
 		CustomList<String> customList = new CustomArrayList<>();
 
 		customList.add("Item1");
@@ -229,7 +229,7 @@ public class CustomArrayListTest {
 	}
 
 	@Test
-	public void testRemoveFromMiddle() {
+	public void test_Remove_From_Middle() {
 		CustomList<String> customList = new CustomArrayList<>();
 
 		customList.add("Item1");
@@ -245,7 +245,7 @@ public class CustomArrayListTest {
 	}
 
 	@Test
-	public void testRemoveLastItem() {
+	public void test_Remove_Last_Item() {
 		CustomList<String> customList = new CustomArrayList<>();
 
 		customList.add("Item1");
