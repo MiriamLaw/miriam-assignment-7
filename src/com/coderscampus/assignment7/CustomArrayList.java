@@ -10,10 +10,8 @@ public class CustomArrayList<T> implements CustomList<T> {
 	}
 
 	public boolean add(T item) {
-		increaseArraySizeIfNeeded();
-		items[size] = item;
-		size++;
-		return true;
+
+		return add(size, item);
 	}
 
 	public boolean add(int index, T item) throws IndexOutOfBoundsException {
